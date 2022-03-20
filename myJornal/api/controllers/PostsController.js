@@ -1,5 +1,6 @@
 module.exports = {
     posts: function(req, res) {
-        res.send("uuuuuubbbbbbbblllbbbßaaaa")
+        const postOne = {id: 1, title: "POST TITLE 1", body: "HERE IS MY BODY"}
+        res.send(postOne)
     }
 }
