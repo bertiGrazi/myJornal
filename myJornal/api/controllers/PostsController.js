@@ -23,7 +23,9 @@ module.exports = {
             }
 
             console.log("Finish creating post object")
-            return res.end()
+
+            return res.redirect('/home')
+            //return res.end()
         })
     },
 

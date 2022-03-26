@@ -19,6 +19,14 @@
 
     <div>
 
+        <form action="/post" method="POST">
+            <div class="post-container">
+                <div>Create Post</div>
+                <input name='title' type="text" placeholder="Post Title">
+                <input name='postBody' type="text" placeholder="Post Body">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
 
         <% allPost.forEach( p=> { %>
             <div class="post-container">
