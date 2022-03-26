@@ -1,13 +1,36 @@
 <html>
 
+<style>
+    body {
+        background-color: rgb(235, 235, 235);
+    }
+
+    .post-container {
+        background-color: white;
+        margin: 16px;
+        padding: 16px;
+        border-radius: 5px;
+        border: solid 1px rgb(199, 199, 199);
+    }
+</style>
+
 <body>
     This will show a list of out post.
 
     <div>
+
+
         <% allPost.forEach( p=> { %>
-            <div><%= p.title %></div>
-            <div><%= p.body %></div>
-        <% }) %>
+            <div class="post-container">
+                <div>
+                    <%= p.title %>
+                </div>
+                <div>
+                    <%= p.body %>
+                </div>
+            </div>
+
+            <% }) %>
                 <div></div>
     </div>
 </body>
