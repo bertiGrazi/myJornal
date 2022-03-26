@@ -1,5 +1,15 @@
 <html>
-    <body>
-        This will show a list of out post.
-    </body>
+
+<body>
+    This will show a list of out post.
+
+    <div>
+        <% allPost.forEach( p=> { %>
+            <div><%= p.title %></div>
+            <div><%= p.body %></div>
+        <% }) %>
+                <div></div>
+    </div>
+</body>
+
 </html>
