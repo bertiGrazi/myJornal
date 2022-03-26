@@ -14,6 +14,26 @@
     }
 </style>
 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    async function handlerDeletePost(e) {
+        console.log("Deleting post...")
+        console.log(e.target.id)
+
+        const postId = e.target.id
+        const url = '/post/' + postId
+       
+        try {
+            const response = await axios.delete(url)
+            console.log(response)
+            location.reload()
+        } catch (err) {
+           console.error(err.toString())
+           alert(err.toString())
+        }
+       
+    }
+</script>
 <body>
     This will show a list of out post.
 
@@ -36,6 +56,7 @@
                 <div>
                     <%= p.body %>
                 </div>
+                <button id='<%= p.id %>' onclick="handlerDeletePost(event)">Delele</button>
             </div>
 
             <% }) %>
