@@ -22,7 +22,8 @@ module.exports.routes = {
   '/': { view: 'pages/homepage' },
   '/posts': 'PostsController.posts',
   '/findById/:postId': 'PostsController.findById',
-  '/create': 'PostsController.create'  
+  'POST /post': 'PostsController.create'  
+  //'/create': 'PostsController.create'  
 
 
   /***************************************************************************

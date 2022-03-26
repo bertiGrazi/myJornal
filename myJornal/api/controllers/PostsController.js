@@ -25,17 +25,16 @@ module.exports = {
     },
     
     create: function(req, res) {
-        const title = req.param("title")
-        const body = req.param("body")
-        console.log(title + " " + body)
+        const title = req.body.title
+        const postBody = req.body.postBody
 
-        sails.log.debug(title + " " + body)
-        sails.log.warn(title + " " + body)
+       sails.log.debug('My title'+ title)
+       sails.log.debug('Body'+ postBody)
 
         const newPost = {
             id: 4, 
             title: title, 
-            body: body
+            body: postBody
         }
 
         allPost.push(newPost)
