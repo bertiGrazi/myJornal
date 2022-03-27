@@ -57,4 +57,29 @@ class Service: NSObject {
             completion(error)
         }
     }
+    
+    func deletePost(id: Int, completion: @escaping (Error?) -> ()) {
+        guard let url = URL(string: "http://localhost:1337/post/\(id)") else { return }
+        
+        var urlRequeste = URLRequest(url: url)
+        urlRequeste.httpMethod = "DELETE"
+        
+        URLSession.shared.dataTask(with: urlRequeste) { data, resp, err in
+            DispatchQueue.main.async {
+                if let err = err {
+                    completion(err)
+                    return
+                }
+                
+                if let resp = resp as? HTTPURLResponse, resp.statusCode != 200 {
+                    let errorString = String(data: data ?? Data(), encoding: .utf8)
+
+                    completion(NSError(domain: "", code: resp.statusCode, userInfo: [NSLocalizedDescriptionKey : errorString]))
+                    return
+                }
+                
+                completion(nil)
+            }
+        }.resume()
+    }
 }
