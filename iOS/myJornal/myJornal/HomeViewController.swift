@@ -25,7 +25,20 @@ class HomeViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            printContent("Delete Post")
+            
+            let post = self.posts[indexPath.row]
+            Service.shared.deletePost(id: post.id) { err in
+                if let err = err {
+                    print("Failed delete post from service")
+                }
+                
+                print("Delete Post")
+                //Remove from array
+                self.posts.remove(at: indexPath.row)
+                
+                //Remove from tableView
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
         }
     }
     
