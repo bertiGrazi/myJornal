@@ -32,4 +32,29 @@ class Service: NSObject {
             }
         }.resume()
     }
+    
+    func createPost(title: String, body: String, completion: @escaping (Error?) -> ()) {
+        guard let url = URL(string: "http://localhost:1337/post") else { return }
+        
+        var urlRequeste = URLRequest(url: url)
+        urlRequeste.httpMethod = "POST"
+        
+        
+        let param = ["title": title, "postBody": body]
+        do {
+            let data = try JSONSerialization.data(withJSONObject: param, options: .init())
+            
+            urlRequeste.httpBody = data
+            urlRequeste.setValue("application/json", forHTTPHeaderField: "content-type")
+            
+            
+            URLSession.shared.dataTask(with: urlRequeste) { data, resp, err in
+                guard let data = data else { return }
+                completion(nil)
+                
+            }.resume()
+        } catch {
+            completion(error)
+        }
+    }
 }

@@ -23,6 +23,12 @@ class HomeViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            printContent("Delete Post")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -51,7 +57,15 @@ class HomeViewController: UITableViewController {
     }
     
     @objc fileprivate func handleCreatePost() {
-       print("Create Post...")
+        Service.shared.createPost(title: "iOS Title", body: "iOS Body") { err in
+            if let err = err {
+                print("Failed to create post object: ", err)
+                return 
+            }
+            
+            print("Finish Create Post")
+            self.fetchPost()
+        }
     }
 }
 
