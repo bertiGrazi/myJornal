@@ -9,8 +9,19 @@ import UIKit
 
 class HomeViewController: UITableViewController {
     //MARK: - Variable
-    var post = [Post]()
+    var posts = [Post]()
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+        let post = posts[indexPath.row]
+        cell.textLabel?.text = post.title
+        cell.detailTextLabel?.text = post.body
+        return cell
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,22 +44,14 @@ class HomeViewController: UITableViewController {
                 print("Failed to fetch post: ", error)
                 
             case .success(let posts):
-                print(posts)
+                self.posts = posts
+                self.tableView.reloadData()
             }
         }
     }
     
     @objc fileprivate func handleCreatePost() {
        print("Create Post...")
-    }
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return post.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-        return cell
     }
 }
 
