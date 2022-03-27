@@ -15,6 +15,7 @@
 		B18618FA27EFDE2F0033EC8D /* myJornalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18618F927EFDE2F0033EC8D /* myJornalTests.swift */; };
 		B186190427EFDE2F0033EC8D /* myJornalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186190327EFDE2F0033EC8D /* myJornalUITests.swift */; };
 		B186190627EFDE2F0033EC8D /* myJornalUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186190527EFDE2F0033EC8D /* myJornalUITestsLaunchTests.swift */; };
+		B186191527EFE2400033EC8D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186191427EFE2400033EC8D /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		B18618FF27EFDE2F0033EC8D /* myJornalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myJornalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B186190327EFDE2F0033EC8D /* myJornalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myJornalUITests.swift; sourceTree = "<group>"; };
 		B186190527EFDE2F0033EC8D /* myJornalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myJornalUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B186191427EFE2400033EC8D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +99,12 @@
 		B18618E127EFDE2D0033EC8D /* myJornal */ = {
 			isa = PBXGroup;
 			children = (
-				B18618E227EFDE2D0033EC8D /* AppDelegate.swift */,
-				B18618E427EFDE2D0033EC8D /* SceneDelegate.swift */,
-				B18618E627EFDE2D0033EC8D /* HomeViewController.swift */,
-				B18618EB27EFDE2F0033EC8D /* Assets.xcassets */,
-				B18618ED27EFDE2F0033EC8D /* LaunchScreen.storyboard */,
+				B186191227EFE21B0033EC8D /* AppDelegate */,
+				B186191327EFE22B0033EC8D /* Controllers */,
+				B186191827EFE2630033EC8D /* Resources */,
+				B186191727EFE2500033EC8D /* View */,
 				B18618F027EFDE2F0033EC8D /* Info.plist */,
+				B186191627EFE2440033EC8D /* Model */,
 			);
 			path = myJornal;
 			sourceTree = "<group>";
@@ -122,6 +124,47 @@
 				B186190527EFDE2F0033EC8D /* myJornalUITestsLaunchTests.swift */,
 			);
 			path = myJornalUITests;
+			sourceTree = "<group>";
+		};
+		B186191227EFE21B0033EC8D /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				B18618E227EFDE2D0033EC8D /* AppDelegate.swift */,
+				B18618E427EFDE2D0033EC8D /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		B186191327EFE22B0033EC8D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B18618E627EFDE2D0033EC8D /* HomeViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B186191627EFE2440033EC8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B186191427EFE2400033EC8D /* Post.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B186191727EFE2500033EC8D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B18618ED27EFDE2F0033EC8D /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B186191827EFE2630033EC8D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B18618EB27EFDE2F0033EC8D /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +300,7 @@
 				B18618E727EFDE2D0033EC8D /* HomeViewController.swift in Sources */,
 				B18618E327EFDE2D0033EC8D /* AppDelegate.swift in Sources */,
 				B18618E527EFDE2D0033EC8D /* SceneDelegate.swift in Sources */,
+				B186191527EFE2400033EC8D /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
