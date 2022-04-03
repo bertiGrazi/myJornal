@@ -10,24 +10,24 @@ module.exports = {
         })
     },
 
-    create: function (req, res) {
-        const title = req.body.title
-        const postBody = req.body.postBody
+    // create: function (req, res) {
+    //     const title = req.body.title
+    //     const postBody = req.body.postBody
 
-        sails.log.debug('My title' + title)
-        sails.log.debug('Body' + postBody)
+    //     sails.log.debug('My title' + title)
+    //     sails.log.debug('Body' + postBody)
 
-        Post.create({ title: title, body: postBody }).exec(function (err) {
-            if (err) {
-                return res.serverError(err.toString())
-            }
+    //     Post.create({ title: title, body: postBody }).exec(function (err) {
+    //         if (err) {
+    //             return res.serverError(err.toString())
+    //         }
 
-            console.log("Finish creating post object")
+    //         console.log("Finish creating post object")
 
-            return res.redirect('/home')
-            //return res.end()
-        })
-    },
+    //         return res.redirect('/home')
+    //         //return res.end()
+    //     })
+    // },
 
     findById: function (req, res) {
         const postId = req.param('postId')
@@ -42,11 +42,11 @@ module.exports = {
         }
     },
 
-    delete: async function(req, res) {
-        const postId = req.param('postId')
+    // delete: async function(req, res) {
+    //     const postId = req.param('postId')
 
-        await Post.destroy({id: postId})
+    //     await Post.destroy({id: postId})
 
-        res.send('Finished deleting post')
-    }
+    //     res.send('Finished deleting post')
+    // }
 }
